@@ -27,7 +27,7 @@ tracing = { version = "0.1", features = ["log"] }
 tower-service = "0.3"
 tokio-stream = "0.1.2"
 reqwest = { version = "0.11", features = ["json"] }
-datafusion = { git ="https://github.com/apache/arrow", branch="master" }
+datafusion = { git ="https://github.com/apache/arrow", branch="master", features=['simd']}
 arrow = { git ="https://github.com/apache/arrow", branch="master" }
 openssl-sys = "*"
 tempfile = "*"
