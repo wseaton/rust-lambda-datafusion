@@ -1,0 +1,10 @@
+/target
+/.cargo
+lambda-runtime/libtest.rmeta
+Cargo.lock
+
+# Built AWS Lambda zipfile
+lambda.zip
+
+# output.json from example docs
+output.json

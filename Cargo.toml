@@ -1,0 +1,43 @@
+[package]
+name = "lambda-datafusion"
+version = "0.1.0"
+authors = ["Will Eaton <me@wseaton.com>"]
+description = "Rust S3 Object Gateway w/ DataFusion"
+edition = "2018"
+
+[features]
+default = ["simulated"]
+simulated = []
+# Force openssl-sys to staticly link in the openssl library. Necessary when
+# cross compiling to x86_64-unknown-linux-musl.
+vendored = ["openssl-sys/vendored"]
+
+
+[dependencies]
+lambda_runtime = "0.3.0"
+tokio = { version = "1.0", features = ["macros", "io-util", "sync", "rt-multi-thread"] }
+hyper = { version = "0.14", features = ["http1", "client", "server", "stream", "runtime"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "^1"
+bytes = "1.0"
+http = "0.2"
+async-stream = "0.3"
+futures = "0.3"
+tracing = { version = "0.1", features = ["log"] }
+tower-service = "0.3"
+tokio-stream = "0.1.2"
+reqwest = { version = "0.11", features = ["json"] }
+datafusion = { git ="https://github.com/apache/arrow", branch="master" }
+arrow = { git ="https://github.com/apache/arrow", branch="master" }
+openssl-sys = "*"
+tempfile = "*"
+rust-s3 = {version = "0.26.4", features = ["no-verify-ssl"]}
+hex = "0.4"
+sha2 = "0.9"
+anyhow = "*"
+chrono = "*"
+url = "*"
+hmac = "*"
+once_cell = "1.4.0"
+simple_logger = "1.6.0"
+log = "^0.4"
